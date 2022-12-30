@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete spoiled food</title>
+</head>
+<body>
+<th:block th:insert="~{/_menu}"></th:block>
+
+<form action="#" th:action="@{/delete}" th:object="${deleteSpoiledFoodForm}" method="post">
+    <p>Food type: <label>
+        <select name="foodType">
+            <option th:each="foodType : ${T(com.partola.PracticeSpringBootApp.entities.FoodType).values()}"
+                    th:value="${foodType}" th:text="${foodType.displayName}"></option>
+        </select>
+    </label></p>
+    <p><input type="submit" value="Submit" /></p>
+</form>
+</body>
+</html>

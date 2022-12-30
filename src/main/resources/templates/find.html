@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Food by Variable Value</title>
+</head>
+<body>
+<th:block th:insert="~{/_menu}"></th:block>
+
+<form action="#" th:action="@{/find}" th:object="${findFoodForm}" method="post">
+    <p>Food type: <label>
+        <select name="foodType">
+            <option th:each="foodType : ${T(com.partola.PracticeSpringBootApp.entities.FoodType).values()}"
+                    th:value="${foodType}" th:text="${foodType.displayName}"></option>
+        </select>
+    </label></p>
+
+    <p>Variable: <label>
+        <select name="variable">
+            <option th:each="variable : ${T(com.partola.PracticeSpringBootApp.entities.Variables).values()}"
+                    th:value="${variable}" th:text="${variable.variableName}"></option>
+        </select>
+    </label></p>
+
+    <p>Variable value: <input type="text" th:field="*{value}" /></p>
+    <p><input type="submit" value="Submit" /></p>
+</form>
+</body>
+</html>

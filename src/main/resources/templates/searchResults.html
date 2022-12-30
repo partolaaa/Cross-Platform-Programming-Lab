@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+</head>
+<body>
+<th:block th:insert="~{/_menu}"></th:block>
+
+<div class="container">
+    <h2>Search results:</h2>
+
+    <table  class="table table-hover">
+        <tr>
+            <th>Name</th>
+            <th>Weight</th>
+            <th>Satiety</th>
+            <th>Days age</th>
+        </tr>
+        <tr th:each="food : ${searchResults}">
+            <td th:utext="${food.getClass().getSimpleName()}">..</td>
+            <td th:utext="${food.getWeight()}">..</td>
+            <td th:utext="${food.getSatiety()}">..</td>
+            <td th:utext="${food.getDaysAge()}">..</td>
+        </tr>
+
+    </table>
+</div>
+</body>
+</html>
